@@ -19,7 +19,7 @@
         android:id="@+id/textView"
         android:layout_marginTop="169dp"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/editText"
+        android:layout_alignStart="@+id/loginEmail"
         android:textColor="@color/white"/>
 
     <TextView
@@ -28,7 +28,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Password"
         android:id="@+id/textView2"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="70dp"
         android:layout_below="@+id/textView"
         android:layout_alignStart="@+id/textView"
         android:textColor="@color/white" />
@@ -38,9 +38,9 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/loginEmail"
         android:layout_below="@+id/textView"
-        android:layout_alignStart="@+id/editText2"
+        android:layout_alignStart="@+id/loginPassword"
         android:textColor="@color/white"/>
 
     <EditText
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/loginPassword"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
         android:textColor="@color/white"/>
@@ -58,23 +58,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:layout_below="@+id/editText2"
+        android:id="@+id/login"
+        android:layout_below="@+id/loginPassword"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp" />
+        android:layout_marginTop="35dp"
+        android:onClick="verifyAccount"
+        android:textColor="@color/black" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create New Account"
-        android:id="@+id/accountButton"
+        android:id="@+id/account"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:textStyle="normal"
+        android:background= "@android:color/transparent"
+        android:textAllCaps="false"
         android:onClick="createAccount"
-        android:background="@android:color/transparent"
-        android:textColor="@color/white"
-        android:textAllCaps="false"/>
-
+        android:textStyle="normal"
+        android:textColor="@drawable/button"/>
 
 </RelativeLayout>

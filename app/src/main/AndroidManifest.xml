@@ -16,7 +16,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".AccountActivity" />
-        <activity android:name=".home"></activity>
+        <activity android:name=".home" />
+        <activity android:name=".settings" />
+        <activity android:name=".routine" />
+        <activity android:name=".profile"></activity>
     </application>
 
 </manifest>
