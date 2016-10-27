@@ -10,19 +10,21 @@ import android.support.v7.widget.SearchView;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.MenuItemCompat.OnActionExpandListener;
 
-public class home extends AppCompatActivity {
+public class profile extends AppCompatActivity {
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_profile);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-        setTitle("Home");
+        setTitle("My Profile");
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.ic_launcher);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
     }
+
+
 
     @Override public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar, menu);
@@ -34,14 +36,14 @@ public class home extends AppCompatActivity {
         OnActionExpandListener expandListener = new OnActionExpandListener() {
             @Override
             public boolean onMenuItemActionCollapse(MenuItem item) {
-                // Do something when action item collapses
-                return true;  // Return true to collapse action view
+
+                return true;
             }
 
             @Override
             public boolean onMenuItemActionExpand(MenuItem item) {
-                // Do something when expanded
-                return true;  // Return true to expand action view
+
+                return true;
             }
         };
 
@@ -52,8 +54,8 @@ public class home extends AppCompatActivity {
         MenuItem profileItem = menu.findItem(R.id.action_add);
         MenuItemCompat.setOnActionExpandListener(profileItem, expandListener);
 
-        MenuItem addItem = menu.findItem(R.id.action_profile);
-        MenuItemCompat.setOnActionExpandListener(addItem, expandListener);
+        MenuItem homeItem = menu.findItem(R.id.action_home);
+        MenuItemCompat.setOnActionExpandListener(homeItem, expandListener);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -67,16 +69,13 @@ public class home extends AppCompatActivity {
                 Intent add = new Intent(this, routine.class);
                 startActivity(add);
                 return true;
-            case R.id.action_profile:
-                Intent profile = new Intent(this, profile.class);
-                startActivity(profile);
+            case R.id.action_home:
+                Intent home = new Intent(this, home.class);
+                startActivity(home);
                 return true;
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
                 return true;
 
         }
     }
-
 }

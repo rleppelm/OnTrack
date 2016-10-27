@@ -9,15 +9,18 @@ import android.view.MenuItem;
 import android.support.v7.widget.SearchView;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.MenuItemCompat.OnActionExpandListener;
+import android.app.Activity;
 
-public class home extends AppCompatActivity {
 
-    @Override protected void onCreate(Bundle savedInstanceState) {
+public class settings extends AppCompatActivity  {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_settings);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setTitle("Settings");
         setSupportActionBar(myToolbar);
-        setTitle("Home");
 
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.mipmap.ic_launcher);
@@ -31,7 +34,7 @@ public class home extends AppCompatActivity {
         SearchView searchView =
                 (SearchView) MenuItemCompat.getActionView(searchItem);
 
-        OnActionExpandListener expandListener = new OnActionExpandListener() {
+        MenuItemCompat.OnActionExpandListener expandListener = new MenuItemCompat.OnActionExpandListener() {
             @Override
             public boolean onMenuItemActionCollapse(MenuItem item) {
                 // Do something when action item collapses
@@ -45,38 +48,36 @@ public class home extends AppCompatActivity {
             }
         };
 
-        MenuItem settingsItem = menu.findItem(R.id.action_settings);
+        MenuItem settingsItem = menu.findItem(R.id.action_profile);
         MenuItemCompat.setOnActionExpandListener(settingsItem, expandListener);
 
 
         MenuItem profileItem = menu.findItem(R.id.action_add);
         MenuItemCompat.setOnActionExpandListener(profileItem, expandListener);
 
-        MenuItem addItem = menu.findItem(R.id.action_profile);
-        MenuItemCompat.setOnActionExpandListener(addItem, expandListener);
+        MenuItem homeItem = menu.findItem(R.id.action_home);
+        MenuItemCompat.setOnActionExpandListener(homeItem, expandListener);
 
         return super.onCreateOptionsMenu(menu);
     }
     @Override public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                Intent intent = new Intent(this, settings.class);
-                startActivity(intent);
-                return true;
             case R.id.action_add:
-                Intent add = new Intent(this, routine.class);
-                startActivity(add);
+                Intent intent = new Intent(this, routine.class);
+                startActivity(intent);
                 return true;
             case R.id.action_profile:
                 Intent profile = new Intent(this, profile.class);
                 startActivity(profile);
                 return true;
+            case R.id.action_home:
+                Intent home = new Intent(this, home.class);
+                startActivity(home);
+                return true;
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
                 return true;
 
         }
     }
-
 }
+
